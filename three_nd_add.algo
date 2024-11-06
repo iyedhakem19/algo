@@ -1,0 +1,48 @@
+
+   def analyze_sentence(sentence):
+    # Initialize counters
+    length = 0
+    words = 0
+    vowels = 0
+    
+    # Define vowel set for quick lookup
+
+    vowel_set = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+    
+    # Process each character
+
+    in_word = False  # This flag helps detect word boundaries
+    for char in sentence:
+        # Ignore the last period for word and vowel counting
+        if char == '.':
+            break
+        
+        length += 1  # Every character increments the length
+        
+        
+        if char in vowel_set:
+            vowels += 1
+        
+        # Count words (every time a space is found, we increment word count)
+
+        if char == ' ':
+            if in_word:
+                words += 1
+                in_word = False
+        else:
+            in_word = True
+    
+    # If the last word is not followed by a space, count it
+    if in_word
+    :
+        words += 1
+    
+    # Return the result
+
+    return length, words, vowels
+
+sentence = "Hello world I am learning."
+length, words, vowels = analyze_sentence(sentence)
+print(f"Length: {length}")
+print(f"Words: {words}")
+print(f"Vowels: {vowels}")
